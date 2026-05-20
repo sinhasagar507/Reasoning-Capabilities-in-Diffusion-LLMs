@@ -1,0 +1,83 @@
+# ── Python ──────────────────────────────────────────────────────────────────
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+build/
+dist/
+*.egg-info/
+.eggs/
+pip-wheel-metadata/
+
+# ── Virtual environments ────────────────────────────────────────────────────
+venv/
+.venv/
+env/
+.env/
+ENV/
+.python-version
+
+# ── Jupyter ─────────────────────────────────────────────────────────────────
+.ipynb_checkpoints/
+*.ipynb_checkpoints
+
+# ── Editors / IDEs ──────────────────────────────────────────────────────────
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# ── OS junk ─────────────────────────────────────────────────────────────────
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# ── Secrets / local config ──────────────────────────────────────────────────
+.env
+.env.*
+*.key
+*.pem
+secrets.json
+
+# ── Logs and temp files ─────────────────────────────────────────────────────
+*.log
+*.tmp
+*.bak
+run.log
+*/run.log
+
+# ── Model weights / checkpoints (large; distribute out-of-band) ─────────────
+sft_checkpoints/
+*.safetensors
+*.bin
+*.pt
+*.pth
+*.ckpt
+*.tgz
+*.tar.gz
+*.tar
+*.zip
+*.sha256
+
+# ── Hugging Face / Torch caches ─────────────────────────────────────────────
+.cache/
+hf_cache/
+.huggingface/
+.torch/
+
+# ── Generation outputs (regenerable from scripts; bloats history) ───────────
+# Comment these out if you want to track full generation dumps in git.
+eval_baselines/
+results/
+eval_results/
+generations.rank*.jsonl
+telemetry.rank*.jsonl
+state.json
+DONE
+
+# ── Datasets (loaded via HF datasets / Arrow; do not vendor) ────────────────
+data/
+datasets/
+*.arrow
