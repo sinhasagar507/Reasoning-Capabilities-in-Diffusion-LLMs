@@ -5,11 +5,24 @@ final accuracy. It has two halves: **diffusion-trajectory probing** (entropy,
 flips, FLI, stability, linear probes, causal interventions) and **attention
 probing** (bidirectionality, entropy, localization, quadrant flows).
 
-## Attention probing — lives in [`../d1/objective3/`](../d1/objective3/)
+## Attention probing — imported from [`../d1/objective3/`](../d1/objective3/)
 
 The attention-map study is implemented as a package inside the vendored d1
 checkout (it depends on d1's diffusion sampler in `d1/eval/generate.py`), so it
-is kept there rather than duplicated:
+is kept there **untouched** and **imported** rather than duplicated.
+
+[`attention_probes.py`](attention_probes.py) in this folder wires the import
+paths (adds `d1/` and `d1/eval/` to `sys.path`) so the d1 probe package is
+usable from here:
+
+```python
+import attention_probes                       # sets up sys.path
+from objective3.probes import attention_metrics, llada_attention_utils
+# or run the d1 attention eval directly:
+#   python ../d1/objective3/scripts/llada_attention_eval_base.py
+```
+
+The probe modules it exposes:
 
 | Path | Description |
 |---|---|

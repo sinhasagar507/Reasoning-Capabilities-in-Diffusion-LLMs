@@ -22,6 +22,12 @@ try:
 except Exception:
     BNB_AVAILABLE = False
 
+# Import shared eval modules (datasets/parsers) from the vendored d1 repo
+# (d1/eval) instead of duplicating them here. generate.py stays local (the
+# modified version) and wins because the script dir is sys.path[0].
+import os as _os, sys as _sys
+_sys.path.append(_os.path.join(_os.path.dirname(_os.path.abspath(__file__)), "..", "d1", "eval"))
+
 from generate import generate
 
 # ===================== Utilities =====================

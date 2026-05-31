@@ -28,25 +28,26 @@ logical-reasoning benchmarks. Three objectives:
 
 ```text
 .
-├── objective1_benchmarking/        # Obj 1 — compute-parity evaluation (all runnable eval code, kept flat)
+├── objective1_benchmarking/        # Obj 1 — compute-parity evaluation (team's eval code; shared libs imported from d1)
 │   ├── eval_sft_task2.py           #   main LLaDA eval harness (SFT + resume), used by run_eval_all.sh
-│   ├── eval.py                     #   original d1-style LLaDA eval entry
+│   ├── eval.py                     #   d1-style LLaDA eval entry (uses local generate.py)
 │   ├── eval_gpqa_arrow.py          #   GPQA eval reading local Arrow shards
-│   ├── generate.py                 #   LLaDA denoising / diffusion sampler
-│   ├── gsm8k.py logiqa.py aime2025.py gpqa_diamond.py gpqa_diamond_2.py math500.py countdown.py sudoku.py
-│   │                               #   dataset wrappers (prompt build + gold parsing)
-│   ├── parsers.py parser_helper.py parser_json.py parse_and_get_acc.py parse_boxed_accuracy.py
-│   │                               #   answer extraction & scoring
+│   ├── generate.py                 #   LLaDA diffusion sampler — modified locally (NOT from d1)
+│   ├── logiqa.py aime2025.py gpqa_diamond.py gpqa_diamond_2.py   #   dataset wrappers added by the team
+│   ├── parse_boxed_accuracy.py     #   boxed-answer scoring (team)
 │   ├── llada_parity_metrics_verbose.py run_llada_metrics_on_jsonl.py
 │   │                               #   compute-parity / telemetry metrics
 │   └── run_eval.sh run_eval_all.sh run_eval_all_gpqa.sh   #   drivers (paths resolve to repo root)
+│   # gsm8k/countdown/math500/sudoku + parsers/parser_helper/parser_json/parse_and_get_acc
+│   # are NOT duplicated here — imported from d1/eval/ via a sys.path shim in the entry scripts.
 │
-├── objective2_repairability/       # Obj 2 — second-chance decoding
+├── objective2_repairability/       # Obj 2 — second-chance decoding (self-contained notebook)
 │   ├── LlaDA_repairability_sagar.ipynb   #   LLaDA base / self-consistency / guided-retry on GSM8K
 │   └── README.md
 │
 ├── objective3_probing/             # Obj 3 — mechanistic & attention probing
-│   └── README.md                   #   attention probes live in d1/objective3/; mechanistic scripts pending
+│   ├── attention_probes.py         #   wires imports of the probe package from d1/objective3/
+│   └── README.md                   #   attention probes imported from d1/objective3/; mechanistic scripts pending
 │
 ├── d1/                             # vendored upstream dllm-reasoning/d1 (SFT/, diffu-grpo/, eval/, objective3/)
 │
@@ -55,9 +56,15 @@ logical-reasoning benchmarks. Three objectives:
 └── sft_checkpoints/                # LoRA adapters (gitignored — distribute out-of-band)
 ```
 
-The Objective-1 Python modules import each other as flat siblings
-(`from generate import generate`, `from gsm8k import GSM8KDataset`), so they are
-deliberately kept in a single flat folder rather than sub-packaged.
+**Shared code lives in `d1/`, not duplicated.** `d1/` is the vendored upstream
+and is kept untouched. The objective folders import what they need from it:
+`objective1_benchmarking/` keeps only the team's modified/added files
+(`generate.py`, the eval harnesses, the extra dataset wrappers) and imports the
+unchanged datasets/parsers from `d1/eval/`; `objective3_probing/` imports the
+attention-probe package from `d1/objective3/`. Each entry script appends the
+relevant `d1/` subdir to `sys.path`, and because the script's own directory is
+`sys.path[0]`, local files (e.g. the modified `generate.py`) always take
+precedence over their d1 counterparts.
 
 ## Objectives at a glance
 
