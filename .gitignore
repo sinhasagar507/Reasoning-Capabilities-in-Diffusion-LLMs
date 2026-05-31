@@ -81,3 +81,9 @@ DONE
 data/
 datasets/
 *.arrow
+
+# ── W&B run logs (training telemetry; not source) ───────────────────────────
+wandb/
+
+# ── Local download staging (out-of-band artifacts; never commit) ────────────
+drive-download*/

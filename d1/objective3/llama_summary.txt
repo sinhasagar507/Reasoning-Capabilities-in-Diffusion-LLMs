@@ -1,0 +1,223 @@
+=== Model: meta-llama/Meta-Llama-3.1-8B-Instruct ===
+LlamaForCausalLM(
+  (model): LlamaModel(
+    (embed_tokens): Embedding(128256, 4096)
+    (layers): ModuleList(
+      (0-31): 32 x LlamaDecoderLayer(
+        (self_attn): LlamaAttention(
+          (q_proj): Linear(in_features=4096, out_features=4096, bias=False)
+          (k_proj): Linear(in_features=4096, out_features=1024, bias=False)
+          (v_proj): Linear(in_features=4096, out_features=1024, bias=False)
+          (o_proj): Linear(in_features=4096, out_features=4096, bias=False)
+        )
+        (mlp): LlamaMLP(
+          (gate_proj): Linear(in_features=4096, out_features=14336, bias=False)
+          (up_proj): Linear(in_features=4096, out_features=14336, bias=False)
+          (down_proj): Linear(in_features=14336, out_features=4096, bias=False)
+          (act_fn): SiLUActivation()
+        )
+        (input_layernorm): LlamaRMSNorm((4096,), eps=1e-05)
+        (post_attention_layernorm): LlamaRMSNorm((4096,), eps=1e-05)
+      )
+    )
+    (norm): LlamaRMSNorm((4096,), eps=1e-05)
+    (rotary_emb): LlamaRotaryEmbedding()
+  )
+  (lm_head): Linear(in_features=4096, out_features=128256, bias=False)
+)
+
+[info] Detected layer stack at model.model.layers with 32 layers
+
+[info] Attention-like modules (module name -> class):
+  model.layers.0.self_attn: LlamaAttention
+  model.layers.0.self_attn.q_proj: Linear
+  model.layers.0.self_attn.k_proj: Linear
+  model.layers.0.self_attn.v_proj: Linear
+  model.layers.0.self_attn.o_proj: Linear
+  model.layers.0.post_attention_layernorm: LlamaRMSNorm
+  model.layers.1.self_attn: LlamaAttention
+  model.layers.1.self_attn.q_proj: Linear
+  model.layers.1.self_attn.k_proj: Linear
+  model.layers.1.self_attn.v_proj: Linear
+  model.layers.1.self_attn.o_proj: Linear
+  model.layers.1.post_attention_layernorm: LlamaRMSNorm
+  model.layers.2.self_attn: LlamaAttention
+  model.layers.2.self_attn.q_proj: Linear
+  model.layers.2.self_attn.k_proj: Linear
+  model.layers.2.self_attn.v_proj: Linear
+  model.layers.2.self_attn.o_proj: Linear
+  model.layers.2.post_attention_layernorm: LlamaRMSNorm
+  model.layers.3.self_attn: LlamaAttention
+  model.layers.3.self_attn.q_proj: Linear
+  model.layers.3.self_attn.k_proj: Linear
+  model.layers.3.self_attn.v_proj: Linear
+  model.layers.3.self_attn.o_proj: Linear
+  model.layers.3.post_attention_layernorm: LlamaRMSNorm
+  model.layers.4.self_attn: LlamaAttention
+  model.layers.4.self_attn.q_proj: Linear
+  model.layers.4.self_attn.k_proj: Linear
+  model.layers.4.self_attn.v_proj: Linear
+  model.layers.4.self_attn.o_proj: Linear
+  model.layers.4.post_attention_layernorm: LlamaRMSNorm
+  model.layers.5.self_attn: LlamaAttention
+  model.layers.5.self_attn.q_proj: Linear
+  model.layers.5.self_attn.k_proj: Linear
+  model.layers.5.self_attn.v_proj: Linear
+  model.layers.5.self_attn.o_proj: Linear
+  model.layers.5.post_attention_layernorm: LlamaRMSNorm
+  model.layers.6.self_attn: LlamaAttention
+  model.layers.6.self_attn.q_proj: Linear
+  model.layers.6.self_attn.k_proj: Linear
+  model.layers.6.self_attn.v_proj: Linear
+  model.layers.6.self_attn.o_proj: Linear
+  model.layers.6.post_attention_layernorm: LlamaRMSNorm
+  model.layers.7.self_attn: LlamaAttention
+  model.layers.7.self_attn.q_proj: Linear
+  model.layers.7.self_attn.k_proj: Linear
+  model.layers.7.self_attn.v_proj: Linear
+  model.layers.7.self_attn.o_proj: Linear
+  model.layers.7.post_attention_layernorm: LlamaRMSNorm
+  model.layers.8.self_attn: LlamaAttention
+  model.layers.8.self_attn.q_proj: Linear
+  model.layers.8.self_attn.k_proj: Linear
+  model.layers.8.self_attn.v_proj: Linear
+  model.layers.8.self_attn.o_proj: Linear
+  model.layers.8.post_attention_layernorm: LlamaRMSNorm
+  model.layers.9.self_attn: LlamaAttention
+  model.layers.9.self_attn.q_proj: Linear
+  model.layers.9.self_attn.k_proj: Linear
+  model.layers.9.self_attn.v_proj: Linear
+  model.layers.9.self_attn.o_proj: Linear
+  model.layers.9.post_attention_layernorm: LlamaRMSNorm
+  model.layers.10.self_attn: LlamaAttention
+  model.layers.10.self_attn.q_proj: Linear
+  model.layers.10.self_attn.k_proj: Linear
+  model.layers.10.self_attn.v_proj: Linear
+  model.layers.10.self_attn.o_proj: Linear
+  model.layers.10.post_attention_layernorm: LlamaRMSNorm
+  model.layers.11.self_attn: LlamaAttention
+  model.layers.11.self_attn.q_proj: Linear
+  model.layers.11.self_attn.k_proj: Linear
+  model.layers.11.self_attn.v_proj: Linear
+  model.layers.11.self_attn.o_proj: Linear
+  model.layers.11.post_attention_layernorm: LlamaRMSNorm
+  model.layers.12.self_attn: LlamaAttention
+  model.layers.12.self_attn.q_proj: Linear
+  model.layers.12.self_attn.k_proj: Linear
+  model.layers.12.self_attn.v_proj: Linear
+  model.layers.12.self_attn.o_proj: Linear
+  model.layers.12.post_attention_layernorm: LlamaRMSNorm
+  model.layers.13.self_attn: LlamaAttention
+  model.layers.13.self_attn.q_proj: Linear
+  model.layers.13.self_attn.k_proj: Linear
+  model.layers.13.self_attn.v_proj: Linear
+  model.layers.13.self_attn.o_proj: Linear
+  model.layers.13.post_attention_layernorm: LlamaRMSNorm
+  model.layers.14.self_attn: LlamaAttention
+  model.layers.14.self_attn.q_proj: Linear
+  model.layers.14.self_attn.k_proj: Linear
+  model.layers.14.self_attn.v_proj: Linear
+  model.layers.14.self_attn.o_proj: Linear
+  model.layers.14.post_attention_layernorm: LlamaRMSNorm
+  model.layers.15.self_attn: LlamaAttention
+  model.layers.15.self_attn.q_proj: Linear
+  model.layers.15.self_attn.k_proj: Linear
+  model.layers.15.self_attn.v_proj: Linear
+  model.layers.15.self_attn.o_proj: Linear
+  model.layers.15.post_attention_layernorm: LlamaRMSNorm
+  model.layers.16.self_attn: LlamaAttention
+  model.layers.16.self_attn.q_proj: Linear
+  model.layers.16.self_attn.k_proj: Linear
+  model.layers.16.self_attn.v_proj: Linear
+  model.layers.16.self_attn.o_proj: Linear
+  model.layers.16.post_attention_layernorm: LlamaRMSNorm
+  model.layers.17.self_attn: LlamaAttention
+  model.layers.17.self_attn.q_proj: Linear
+  model.layers.17.self_attn.k_proj: Linear
+  model.layers.17.self_attn.v_proj: Linear
+  model.layers.17.self_attn.o_proj: Linear
+  model.layers.17.post_attention_layernorm: LlamaRMSNorm
+  model.layers.18.self_attn: LlamaAttention
+  model.layers.18.self_attn.q_proj: Linear
+  model.layers.18.self_attn.k_proj: Linear
+  model.layers.18.self_attn.v_proj: Linear
+  model.layers.18.self_attn.o_proj: Linear
+  model.layers.18.post_attention_layernorm: LlamaRMSNorm
+  model.layers.19.self_attn: LlamaAttention
+  model.layers.19.self_attn.q_proj: Linear
+  model.layers.19.self_attn.k_proj: Linear
+  model.layers.19.self_attn.v_proj: Linear
+  model.layers.19.self_attn.o_proj: Linear
+  model.layers.19.post_attention_layernorm: LlamaRMSNorm
+  model.layers.20.self_attn: LlamaAttention
+  model.layers.20.self_attn.q_proj: Linear
+  model.layers.20.self_attn.k_proj: Linear
+  model.layers.20.self_attn.v_proj: Linear
+  model.layers.20.self_attn.o_proj: Linear
+  model.layers.20.post_attention_layernorm: LlamaRMSNorm
+  model.layers.21.self_attn: LlamaAttention
+  model.layers.21.self_attn.q_proj: Linear
+  model.layers.21.self_attn.k_proj: Linear
+  model.layers.21.self_attn.v_proj: Linear
+  model.layers.21.self_attn.o_proj: Linear
+  model.layers.21.post_attention_layernorm: LlamaRMSNorm
+  model.layers.22.self_attn: LlamaAttention
+  model.layers.22.self_attn.q_proj: Linear
+  model.layers.22.self_attn.k_proj: Linear
+  model.layers.22.self_attn.v_proj: Linear
+  model.layers.22.self_attn.o_proj: Linear
+  model.layers.22.post_attention_layernorm: LlamaRMSNorm
+  model.layers.23.self_attn: LlamaAttention
+  model.layers.23.self_attn.q_proj: Linear
+  model.layers.23.self_attn.k_proj: Linear
+  model.layers.23.self_attn.v_proj: Linear
+  model.layers.23.self_attn.o_proj: Linear
+  model.layers.23.post_attention_layernorm: LlamaRMSNorm
+  model.layers.24.self_attn: LlamaAttention
+  model.layers.24.self_attn.q_proj: Linear
+  model.layers.24.self_attn.k_proj: Linear
+  model.layers.24.self_attn.v_proj: Linear
+  model.layers.24.self_attn.o_proj: Linear
+  model.layers.24.post_attention_layernorm: LlamaRMSNorm
+  model.layers.25.self_attn: LlamaAttention
+  model.layers.25.self_attn.q_proj: Linear
+  model.layers.25.self_attn.k_proj: Linear
+  model.layers.25.self_attn.v_proj: Linear
+  model.layers.25.self_attn.o_proj: Linear
+  model.layers.25.post_attention_layernorm: LlamaRMSNorm
+  model.layers.26.self_attn: LlamaAttention
+  model.layers.26.self_attn.q_proj: Linear
+  model.layers.26.self_attn.k_proj: Linear
+  model.layers.26.self_attn.v_proj: Linear
+  model.layers.26.self_attn.o_proj: Linear
+  model.layers.26.post_attention_layernorm: LlamaRMSNorm
+  model.layers.27.self_attn: LlamaAttention
+  model.layers.27.self_attn.q_proj: Linear
+  model.layers.27.self_attn.k_proj: Linear
+  model.layers.27.self_attn.v_proj: Linear
+  model.layers.27.self_attn.o_proj: Linear
+  model.layers.27.post_attention_layernorm: LlamaRMSNorm
+  model.layers.28.self_attn: LlamaAttention
+  model.layers.28.self_attn.q_proj: Linear
+  model.layers.28.self_attn.k_proj: Linear
+  model.layers.28.self_attn.v_proj: Linear
+  model.layers.28.self_attn.o_proj: Linear
+  model.layers.28.post_attention_layernorm: LlamaRMSNorm
+  model.layers.29.self_attn: LlamaAttention
+  model.layers.29.self_attn.q_proj: Linear
+  model.layers.29.self_attn.k_proj: Linear
+  model.layers.29.self_attn.v_proj: Linear
+  model.layers.29.self_attn.o_proj: Linear
+  model.layers.29.post_attention_layernorm: LlamaRMSNorm
+  model.layers.30.self_attn: LlamaAttention
+  model.layers.30.self_attn.q_proj: Linear
+  model.layers.30.self_attn.k_proj: Linear
+  model.layers.30.self_attn.v_proj: Linear
+  model.layers.30.self_attn.o_proj: Linear
+  model.layers.30.post_attention_layernorm: LlamaRMSNorm
+  model.layers.31.self_attn: LlamaAttention
+  model.layers.31.self_attn.q_proj: Linear
+  model.layers.31.self_attn.k_proj: Linear
+  model.layers.31.self_attn.v_proj: Linear
+  model.layers.31.self_attn.o_proj: Linear
+  model.layers.31.post_attention_layernorm: LlamaRMSNorm
